@@ -50,7 +50,7 @@ public class NotificationController {
 
     @PostMapping("/purchase-confirmation")
     public ResponseEntity<?> sendPurchaseConfirmation(@RequestParam String email,
-                                                      @RequestParam String orderCode,
+                                                          @RequestParam String orderCode,
                                                       @RequestParam BigDecimal total) {
         try {
             emailService.sendPurchaseConfirmation(email, orderCode, total);

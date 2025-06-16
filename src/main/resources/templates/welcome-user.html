@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Bienvenido a Mi Tienda Online!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 30px -30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .welcome-message {
+            background-color: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+            margin: 20px 0;
+        }
+        .benefits {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .benefits ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .benefits li {
+            margin: 8px 0;
+            color: #555;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 20px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+        .social-links {
+            margin: 20px 0;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #667eea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🎉 ¡Bienvenido!</h1>
+        <p>Gracias por unirte a nuestra comunidad</p>
+    </div>
+
+    <div class="welcome-message">
+        <h2>¡Hola <span th:text="${userName}">Usuario</span>!</h2>
+        <p>Estamos emocionados de tenerte como parte de <strong>Mi Tienda Online</strong>. Tu cuenta ha sido creada exitosamente y ya puedes comenzar a disfrutar de todas nuestras funcionalidades.</p>
+    </div>
+
+    <div class="benefits">
+        <h3>🛍️ ¿Qué puedes hacer ahora?</h3>
+        <ul>
+            <li>Explorar nuestro catálogo completo de productos</li>
+            <li>Acceder a ofertas exclusivas para miembros</li>
+            <li>Realizar compras seguras con múltiples métodos de pago</li>
+            <li>Seguir el estado de tus pedidos en tiempo real</li>
+            <li>Recibir notificaciones de nuevos productos y promociones</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="http://localhost:4200" class="cta-button">
+            🚀 Comenzar a Comprar
+        </a>
+    </div>
+
+    <div class="footer">
+        <div class="social-links">
+            <a href="#">Facebook</a> |
+            <a href="#">Instagram</a> |
+            <a href="#">Twitter</a>
+        </div>
+        <p>
+            <strong>Mi Tienda Online</strong><br>
+            📧 Contacto: aguss.dibella@gmail.com<br>
+            📞 Teléfono: +54 351 123-4567<br>
+            🏢 Córdoba, Argentina
+        </p>
+        <p style="font-size: 12px; color: #999;">
+            © <span th:text="${year}">2025</span> Mi Tienda Online. Todos los derechos reservados.<br>
+            Este email fue enviado porque creaste una cuenta en nuestro sitio web.
+        </p>
+    </div>
+</div>
+</body>
+</html>

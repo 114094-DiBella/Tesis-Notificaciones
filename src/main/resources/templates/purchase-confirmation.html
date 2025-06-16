@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 30px -30px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .order-details {
+            background-color: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+            margin: 20px 0;
+        }
+        .order-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .order-info:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+        .status-badge {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .next-steps {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>✅ ¡Compra Confirmada!</h1>
+        <p>Tu pedido ha sido registrado exitosamente</p>
+    </div>
+
+    <div class="order-details">
+        <h3>📋 Detalles del Pedido</h3>
+        <div class="order-info">
+            <span><strong>Número de Orden:</strong></span>
+            <span th:text="${orderCode}">COD-000123</span>
+        </div>
+        <div class="order-info">
+            <span><strong>Fecha:</strong></span>
+            <span th:text="${date}">15/06/2025 14:30</span>
+        </div>
+        <div class="order-info">
+            <span><strong>Estado:</strong></span>
+            <span class="status-badge">⏳ Pendiente de Pago</span>
+        </div>
+        <div class="order-info">
+            <span><strong>Total:</strong></span>
+            <span>$<span th:text="${total}">1,500.00</span></span>
+        </div>
+    </div>
+
+    <div class="next-steps">
+        <h3>🚀 Próximos Pasos</h3>
+        <ul>
+            <li><strong>Realizar el pago:</strong> Completa el pago para confirmar tu pedido</li>
+            <li><strong>Confirmación:</strong> Recibirás un email cuando el pago sea aprobado</li>
+            <li><strong>Preparación:</strong> Comenzaremos a preparar tu pedido</li>
+            <li><strong>Envío:</strong> Te notificaremos cuando tu pedido esté listo para retirar</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <p><strong>¿Tienes alguna pregunta sobre tu pedido?</strong></p>
+        <p>Contáctanos: 📧 aguss.dibella@gmail.com | 📞 +54 351 123-4567</p>
+    </div>
+
+    <div class="footer">
+        <p>
+            <strong>Mi Tienda Online</strong><br>
+            Córdoba, Argentina
+        </p>
+        <p style="font-size: 12px; color: #999;">
+            Este email fue enviado para confirmar tu compra con número de orden <span th:text="${orderCode}">COD-000123</span>
+        </p>
+    </div>
+</div>
+</body>
+</html>
