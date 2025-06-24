@@ -129,6 +129,38 @@ public class EmailServiceImpl implements EmailService {
     public void sendPaymentRejected(String to, String orderCode, String reason) {
 
     }
+    @Override
+    public void sendCancelationOrder(String email, String orderCode, String reason) {
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("orderCode", orderCode);
+        variables.put("reason", reason);
+        variables.put("date", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
+
+        EmailRequest request = new EmailRequest();
+        request.setTo(email);
+        request.setSubject("Orden Cancelada - " + orderCode + " - " + reason);
+        request.setTemplate("payment-rejected"); // El template HTML que creamos
+        request.setVariables(variables);
+        request.setType("ORDER_CANCELLED");
+
+        sendEmail(request);
+    }
+
+    @Override
+    public void sendNewPassword(String email, String password) {
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("password", password);
+        variables.put("email", email);
+        EmailRequest request = new EmailRequest();
+        request.setTo(email);
+        request.setSubject("Forgotten Password");
+        request.setTemplate("forgotten-password");
+        request.setVariables(variables);
+        request.setType("FORGOTTEN_PASSWORD");
+
+        sendEmail(request);
+
+    }
 
     private void logNotification(String to, String subject, String status, String error) {
         NotificationLogEntity log = new NotificationLogEntity();

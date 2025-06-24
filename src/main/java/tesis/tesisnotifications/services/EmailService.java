@@ -12,4 +12,8 @@ public interface EmailService {
     void sendPurchaseConfirmation(String to, String orderCode, BigDecimal total);
     void sendPaymentApproved(String to, String orderCode);
     void sendPaymentRejected(String to, String orderCode, String reason);
+
+    void sendCancelationOrder(String email, String orderCode, String reason);
+
+    void sendNewPassword(String email, String password);
 }

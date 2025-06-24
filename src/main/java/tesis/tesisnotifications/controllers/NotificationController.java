@@ -70,4 +70,26 @@ public class NotificationController {
             return ResponseEntity.status(500).body(Map.of("success", false, "error", e.getMessage()));
         }
     }
+
+    @PostMapping("/order-cancellation")
+    public ResponseEntity<?> sendOrderCancelation(@RequestParam String email, @RequestParam String orderCode, @RequestParam String reason) {
+        try {
+            emailService.sendCancelationOrder(email, orderCode, reason);
+            return ResponseEntity.ok(Map.of("success", true));
+        }
+        catch (Exception e) {
+            return ResponseEntity.status(500).body(Map.of("success", false, "error", e.getMessage()));
+        }
+    }
+
+    @PostMapping("/forgotPassword")
+    public ResponseEntity<?> sendForgotPassword(@RequestParam String email, String password) {
+        try {
+            emailService.sendNewPassword(email, password);
+            return ResponseEntity.ok(Map.of("success", true));
+        }
+        catch (Exception e ){
+            return ResponseEntity.status(500).body(Map.of("success", false, "error", e.getMessage()));
+        }
+    }
 }
